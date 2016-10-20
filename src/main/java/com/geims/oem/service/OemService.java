@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.geims.oem.vo.AssemblyVo;
+import com.geims.oem.vo.ReceiveVo;
+import com.geims.oem.vo.SendVo;
 
 /**
  * Service interface for OEM
@@ -20,5 +22,11 @@ public interface OemService {
 
 	// Service to get a particular assembly for a given assembly name
 	AssemblyVo getAssemblyParts(String assemblyName);
+
+	//Saves the booking data
+	public void createBooking(ReceiveVo receiveVo);
+
+	//Send the booking data
+	SendVo getBookingDetailsByBookingNumberAndUserName(String userName, int bookingNumber);
 
 }

@@ -2,15 +2,12 @@ package com.geims.oem.entity;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -19,6 +16,7 @@ import javax.persistence.Table;
 public class PartNumber {
 	private int id;
 	private int partNumber;
+	private int recommendedQuantity;
 	private List<Assembly> assemblies;
 
 	@Id
@@ -41,8 +39,15 @@ public class PartNumber {
 		this.partNumber = partNumber;
 	}
 
-//	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//	@JoinTable(name = "assemblyPartNumberMappingTable", joinColumns = @JoinColumn(name = "part_number_id)", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "assembly_id", referencedColumnName = "id"))
+	@Column(name="recommendedQuantity")
+	public int getRecommendedQuantity() {
+		return recommendedQuantity;
+	}
+
+	public void setRecommendedQuantity(int recommendedQuantity) {
+		this.recommendedQuantity = recommendedQuantity;
+	}
+
 	@ManyToMany(fetch=FetchType.LAZY, mappedBy="partNumbers")
 	public List<Assembly> getAssemblies() {
 		return assemblies;

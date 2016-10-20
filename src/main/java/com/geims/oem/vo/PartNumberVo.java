@@ -8,6 +8,7 @@ package com.geims.oem.vo;
  */
 public class PartNumberVo {
 	private int partNumber;
+	private int recommendedQuantity;
 
 	public int getPartNumber() {
 		return partNumber;
@@ -16,5 +17,14 @@ public class PartNumberVo {
 	public void setPartNumber(int partNumber) {
 		this.partNumber = partNumber;
 	}
+
+	public int getRecommendedQuantity() {
+		return recommendedQuantity;
+	}
+
+	public void setRecommendedQuantity(int recommendedQuantity) {
+		this.recommendedQuantity = recommendedQuantity;
+	}
+	
 
 }
